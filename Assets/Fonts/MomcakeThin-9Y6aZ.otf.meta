@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ee6ce0bfe00732b4fa1c93c48979443d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Momcake
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 37923742bd98c7749b3926cdf984bdb7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

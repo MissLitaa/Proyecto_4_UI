@@ -6,6 +6,8 @@ public class target : MonoBehaviour
 {
     private float destroyTimer = 2f;
     private GameManager gameManagerScript;
+    [SerializeField] private int points;
+    public ParticleSystem explosionParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -17,23 +19,38 @@ public class target : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, destroyTimer);
+       
     }
 
     private void OnMouseDown()
     {
         if (gameObject.CompareTag("Good"))
         {
-            Destroy(gameObject); 
-            //Dar puntos, SP, AS.
+            gameManagerScript.UpdateScore(points);
+            Destroy(gameObject);
+            
+            
+            //Dar puntos, AS.
             
         }
 
         else if (gameObject.CompareTag("Bad"))
         {
             //Parar juego o restar puntos, o no contar puntuación, quitar vida, musiquita de game over o mal hecho, SP.
-            Destroy(gameObject);
-            gameManagerScript.isGameOver = true;
+            Destroy(gameObject); 
+
+            gameManagerScript.missCounter += 1;
+
+            if (gameManagerScript.missCounter > gameManagerScript.totalMisses)
+            {
+                gameManagerScript.isGameOver = true;
+            }
             
+        }
+
+        if (!gameManagerScript.isGameOver)
+        { 
+            Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation);
         }
         
     }
